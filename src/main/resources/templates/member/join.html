@@ -323,26 +323,26 @@
                 <!-- To make this form functional, sign up at-->
                 <!-- https://startbootstrap.com/solution/contact-forms-->
                 <!-- to get an API token!-->
-                <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+                <form id="contactForm" data-sb-form-api-token="API_TOKEN" action="/join/create" method="post">
                     <div class="row align-items-stretch mb-5">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <!-- Name input-->
                                 <h6 style="color: #d3d3d4; margin-left: 100px">사용하실 아이디를 입력해주세요</h6>
-                                <input class="form-control" id="memberId" type="text" placeholder="아이디" data-sb-validations="required" />
+                                <input class="form-control" id="memberId" name="memberId" type="text" placeholder="아이디" data-sb-validations="required" />
                                 <!--<div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div> 승경주석-->
                             </div>
                             <div class="form-group">
                                 <!-- Email address input-->
                                 <h6 style="color: #d3d3d4; margin-left: 100px">사용하실 비밀번호를 입력해주세요</h6>
-                                <input class="form-control" id="memberPw" type="password" placeholder="비밀번호" data-sb-validations="required" />
+                                <input class="form-control" id="memberPw" name="memberPw" type="password" placeholder="비밀번호" data-sb-validations="required" />
                                 <!--<div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
                                 <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div> 승경주석-->
                             </div>
                             <div class="form-group mb-md-0">
                                 <!-- Phone number input-->
                                 <h6 style="color: #d3d3d4; margin-left: 100px">확인을 위해 비밀번호를 한번 더 입력해주세요</h6>
-                                <input class="form-control" id="memberPwCk" type="password" placeholder="비밀번호 확인" data-sb-validations="required" />
+                                <input class="form-control" id="memberPwCk" name="memberPwCk" type="password" placeholder="비밀번호 확인" data-sb-validations="required" />
                                 <!--<div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div> 승경주석-->
                             </div>
                         </div>
@@ -357,21 +357,21 @@
                             <div class="form-group">
                                 <!-- Email address input-->
                                 <h6 style="color: #d3d3d4; margin-left: 100px">이름을 입력해주세요</h6>
-                                <input class="form-control" id="memberNm" type="text" placeholder="이름" data-sb-validations="required" />
+                                <input class="form-control" id="memberNm" name="memberNm" type="text" placeholder="이름" data-sb-validations="required" />
                                 <!--<div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
                                 <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div> 승경주석-->
                             </div>
                             <div class="form-group">
                                 <!-- Email address input-->
                                 <h6 style="color: #d3d3d4; margin-left: 100px">경력(연차)을 입력해주세요</h6>
-                                <input class="form-control" id="memberExpr" type="text" placeholder="경력" />
+                                <input class="form-control" id="memberExpr" name="memberExpr" type="text" placeholder="경력" />
                                 <!--<div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
                                 <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div> 승경주석-->
                             </div>
                             <div class="form-group">
                                 <!-- Email address input-->
                                 <h6 style="color: #d3d3d4; margin-left: 100px">직종을 입력해주세요</h6>
-                                <input class="form-control" id="memberOcp" type="text" placeholder="직종" />
+                                <input class="form-control" id="memberOcp" name="memberOcp" type="text" placeholder="직종" />
                                 <!--<div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
                                 <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div> 승경주석-->
                             </div>
@@ -396,7 +396,7 @@
                     <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
                     <!-- Submit Button-->
                     <!--<div class="text-center"><button class="btn btn-primary btn-xl text-uppercase disabled" id="submitButton" type="submit">Send Message</button></div> 승경주석-->
-                    <div class="text-center"><button type="button" class="btn btn-warning btn-xl" id="joinBtn">JOIN</button></div>
+                    <div class="text-center"><button class="btn btn-warning btn-xl" id="joinBtn" type="submit">JOIN</button></div>
                 </form>
             </div>
         </section>
