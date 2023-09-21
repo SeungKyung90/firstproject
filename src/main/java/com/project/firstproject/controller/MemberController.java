@@ -3,6 +3,7 @@ package com.project.firstproject.controller;
 import com.project.firstproject.dto.MemberDTO;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
@@ -21,7 +22,7 @@ public class MemberController {
     @PostMapping("/join/create")
     public String joinCreate(MemberDTO dto) {
         System.out.println(dto.getMemberId());
-        return "redirect:/";
+        return "redirect:/login";
     }
 
 }

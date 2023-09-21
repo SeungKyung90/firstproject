@@ -323,7 +323,7 @@
                 <!-- To make this form functional, sign up at-->
                 <!-- https://startbootstrap.com/solution/contact-forms-->
                 <!-- to get an API token!-->
-                <form id="contactForm" data-sb-form-api-token="API_TOKEN" action="/join/create" method="post">
+                <form id="contactForm" name="joinForm" data-sb-form-api-token="API_TOKEN" action="/join/create" method="post">
                     <div class="row align-items-stretch mb-5">
                         <div class="col-md-6">
                             <div class="form-group">
@@ -396,7 +396,10 @@
                     <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
                     <!-- Submit Button-->
                     <!--<div class="text-center"><button class="btn btn-primary btn-xl text-uppercase disabled" id="submitButton" type="submit">Send Message</button></div> 승경주석-->
-                    <div class="text-center"><button class="btn btn-warning btn-xl" id="joinBtn" type="submit">JOIN</button></div>
+                    <div class="text-center">
+                        <button class="btn btn-warning btn-xl" id="joinBtn" type="button" onclick="success()" >JOIN</button>
+                        <button class="btn btn-outline-warning btn-xl" id="cancelBtn" type="button" onclick="history.go(-1)">CANCEL</button>
+                    </div>
                 </form>
             </div>
         </section>
@@ -637,5 +640,20 @@
         <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+        <script>
+            function success()
+            {
+                var memberId = document.getElementById("memberId").value;
+                var memberPw = document.getElementById("memberPw").value;
+                var memberPwCk = document.getElementById("memberPwCk").value;
+                var memberNm = document.getElementById("memberNm").value;
+
+                if(memberId == "" || memberPw == "" || memberPwCk == "" || memberNm == ""){
+                    alert("회원가입이 완료되지 않았습니다.");
+                } else {
+                    document.getElementById("contactForm").submit();
+                }
+            }
+        </script>
     </body>
 </html>
