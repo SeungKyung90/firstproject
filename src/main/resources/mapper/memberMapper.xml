@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.memberMapper">
+
+    <!--<select id="select" resultType="com.example.dsg_lms.admin.dto.CategoryDto">
+        select c.*
+             ,   (select count(*) from course where category_id = c.id) as course_count
+        from category c
+        where 1=1
+          and using_yn = 1
+        order by sort_value desc
+    </select>-->
+    <insert id="insert">
+        insert into member(memberId,memberPw,memberNm,memberExpr,memberOcp)
+        values (#{memberId, jdbcType = VARCHAR},#{memberPw, jdbcType = VARCHAR},#{memberNm, jdbcType = VARCHAR},
+                #{memberExpr, jdbcType = VARCHAR},#{memberOcp, jdbcType = VARCHAR})
+    </insert>
+
+</mapper>

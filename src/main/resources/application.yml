@@ -9,3 +9,7 @@ spring:
     url: jdbc:mysql://localhost:3306/first?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
     username: root
     password: root
+
+# mapper 정보 추가
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
