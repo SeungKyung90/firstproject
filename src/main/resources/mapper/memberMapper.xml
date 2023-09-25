@@ -18,4 +18,10 @@
                 #{memberExpr, jdbcType = VARCHAR},#{memberOcp, jdbcType = VARCHAR})
     </insert>
 
+    <select id="idCheck" resultType="int">
+        select count(*)
+        from member
+        where memberId = #{memberId}
+    </select>
+
 </mapper>

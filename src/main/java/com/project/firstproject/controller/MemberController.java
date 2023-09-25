@@ -4,8 +4,9 @@ import com.project.firstproject.dto.MemberDTO;
 import com.project.firstproject.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.HashMap;
 
 @Controller
 public class MemberController {
@@ -35,4 +36,15 @@ public class MemberController {
 
     }
 
+    @ResponseBody
+    @RequestMapping("/idCheck")
+    public HashMap<String,Integer> idCheck(@RequestParam("memberId") String memberId){
+        int idCnt = 0;
+        idCnt = memberService.idCheck(memberId);
+
+        HashMap<String,Integer> result = new HashMap<>();
+        result.put("idCnt",idCnt);
+
+        return result;
+    }
 }

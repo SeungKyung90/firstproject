@@ -18,4 +18,10 @@ public class MemberDAO {
         return cnt;
     }
 
+    public int idCheck(String memberId) {
+        int idCnt = 0;
+        idCnt = sqlSession.selectOne("mapper.memberMapper.idCheck", memberId);
+
+        return idCnt;
+    }
 }

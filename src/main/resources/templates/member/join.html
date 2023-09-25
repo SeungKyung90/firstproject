@@ -16,6 +16,7 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
         <html xmlns:th="http://www.thymeleaf.org" />
+        <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -329,20 +330,20 @@
                             <div class="form-group">
                                 <!-- Name input-->
                                 <h6 style="color: #d3d3d4; margin-left: 130px">* 사용하실 아이디를 입력해주세요</h6>
-                                <input class="form-control" id="memberId" name="memberId" type="text" placeholder="아이디" data-sb-validations="required" />
+                                <input class="form-control" id="memberId" name="memberId" onblur="idCheck()" type="text" placeholder="4~12자의 영문 대소문자와 숫자만 입력가능" data-sb-validations="required" />
                                 <!--<div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div> 승경주석-->
                             </div>
                             <div class="form-group">
                                 <!-- Email address input-->
                                 <h6 style="color: #d3d3d4; margin-left: 130px">* 사용하실 비밀번호를 입력해주세요</h6>
-                                <input class="form-control" id="memberPw" name="memberPw" type="password" placeholder="비밀번호" data-sb-validations="required" />
+                                <input class="form-control" id="memberPw" name="memberPw" type="password" placeholder="4~12자의 영문 대소문자와 숫자만 입력가능" data-sb-validations="required" />
                                 <!--<div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
                                 <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div> 승경주석-->
                             </div>
                             <div class="form-group mb-md-0">
                                 <!-- Phone number input-->
                                 <h6 style="color: #d3d3d4; margin-left: 130px">* 확인을 위해 비밀번호를 한번 더 입력해주세요</h6>
-                                <input class="form-control" id="memberPwCk" name="memberPwCk" type="password" placeholder="비밀번호 확인" data-sb-validations="required" />
+                                <input class="form-control" id="memberPwCk" name="memberPwCk" type="password" placeholder="" data-sb-validations="required" />
                                 <h6 style="color: red; margin: 15px 0 0 130px; font-size: smaller">*는 필수입력항목입니다.</h6>
                                 <!--<div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div> 승경주석-->
                             </div>
@@ -642,7 +643,26 @@
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
         <script>
-            function success()
+            function idCheck(){
+                debugger;//승경
+                var memberId = document.getElementById("memberId").value;
+                $.ajax({
+                    url : "/idCheck",
+                    data : {"memberId" : memberId},
+                    type : 'post',
+                    success : function (data){
+                        debugger;//승경
+                        var idCnt = data.idCnt;
+                        if(idCnt > 0) {
+                            alert("중복된 아이디 입니다.");
+                            $("#memberId").val('');
+                            $("#memberId").focus();
+                        }
+                    }
+                });
+            }
+
+            /*function success()
             {
                 var memberId = document.getElementById("memberId").value;
                 var memberPw = document.getElementById("memberPw").value;
@@ -654,7 +674,7 @@
                 } else {
                     document.getElementById("contactForm").submit();
                 }
-            }
+            } 승경주석*/
         </script>
     </body>
 </html>
