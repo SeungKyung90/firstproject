@@ -24,4 +24,10 @@
         where memberId = #{memberId}
     </select>
 
+    <select id="memberCheck" resultType="int" parameterType="com.project.firstproject.dto.MemberDTO">
+        select count(*)
+        from member
+        where BINARY memberId = #{memberId} AND BINARY memberPw = #{memberPw}
+    </select>
+
 </mapper>

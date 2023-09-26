@@ -24,4 +24,11 @@ public class MemberDAO {
 
         return idCnt;
     }
+
+    public int memberCheck(MemberDTO memberDTO) {
+        int memberCnt = 0;
+        memberCnt = sqlSession.selectOne("mapper.memberMapper.memberCheck", memberDTO);
+
+        return memberCnt;
+    }
 }

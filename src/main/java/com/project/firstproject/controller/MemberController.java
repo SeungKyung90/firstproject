@@ -38,7 +38,7 @@ public class MemberController {
 
     @ResponseBody
     @RequestMapping("/idCheck")
-    public HashMap<String,Integer> idCheck(@RequestParam("memberId") String memberId){
+    public HashMap<String,Integer> idCheck(@RequestParam("memberId") String memberId){  // 회원가입시 아이디 중복체크
         int idCnt = 0;
         idCnt = memberService.idCheck(memberId);
 
@@ -47,4 +47,22 @@ public class MemberController {
 
         return result;
     }
+
+    @ResponseBody
+    @RequestMapping("/memberCheck")
+    public HashMap<String,Integer> memberCheck(@RequestParam("memberId") String memberId, @RequestParam("memberPw") String memberPw){
+        int memberCnt = 0;
+
+        MemberDTO memberDTO = new MemberDTO();
+        memberDTO.setMemberId(memberId);
+        memberDTO.setMemberPw(memberPw);
+
+        memberCnt = memberService.memberCheck(memberDTO);
+
+        HashMap<String,Integer> result = new HashMap<>();
+        result.put("memberCnt",memberCnt);
+
+        return result ;
+    }
+    
 }

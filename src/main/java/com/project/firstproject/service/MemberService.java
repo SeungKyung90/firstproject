@@ -19,4 +19,8 @@ public class MemberService {
     public int idCheck(String memberId) {
         return memberDAO.idCheck(memberId);
     }
+
+    public int memberCheck(MemberDTO memberDTO) {
+        return memberDAO.memberCheck(memberDTO);
+    }
 }
